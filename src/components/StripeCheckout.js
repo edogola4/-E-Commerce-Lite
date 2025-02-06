@@ -9,7 +9,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { CheckoutForm } from './CheckoutForm';
+import  CheckoutForm  from './CheckoutForm';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 

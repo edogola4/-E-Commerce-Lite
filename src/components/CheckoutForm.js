@@ -16,6 +16,9 @@ import styled from 'styled-components';
 import Row from './Row';
 import BillingDetailsFields from './BillingDetailsFields';
 
+// In StripeCheckout.js
+//import CheckoutForm from './CheckoutForm';
+
 const CheckoutForm = () => {
   const { cart } = useCartContext();
   const [succeeded, setSucceeded] = useState(false);

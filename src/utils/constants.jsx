@@ -1,14 +1,20 @@
-import React from 'react';
+// src/utils/constants.jsx
 import { GiClothes, GiPresent } from 'react-icons/gi';
 import { MdOutlineLocalShipping, MdEco } from 'react-icons/md';
-import { FaBaby, FaRegHeart, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaBaby, FaRegHeart, FaInstagram, FaTiktok, FaFacebook, FaTwitter } from 'react-icons/fa';
 import { RiCustomerService2Line } from 'react-icons/ri';
 
-// Branding constants
+// Branding & Core Information
 export const BRAND_NAME = 'TinyTots Boutique';
 export const BRAND_TAGLINE = 'Big Style for Little Ones';
 
-// Navigation links
+export const CONTACT_INFO = {
+  email: 'hello@tinytotsboutique.com',
+  phone: '+1 (555) 123-4567',
+  address: '123 Playful Lane, Kids City, KC 12345'
+};
+
+// Navigation & Site Structure
 export const NAV_LINKS = [
   {
     id: 1,
@@ -36,7 +42,7 @@ export const NAV_LINKS = [
   },
 ];
 
-// Value propositions
+// Value Propositions
 export const OUR_PROMISE = [
   {
     id: 1,
@@ -64,7 +70,39 @@ export const OUR_PROMISE = [
   },
 ];
 
-// API configuration
+// Social Media Configuration
+export const SOCIAL_LINKS = [
+  {
+    id: 1,
+    name: 'facebook',
+    url: '#',
+    icon: <FaFacebook />,
+    handle: '@tinytotsboutique'
+  },
+  {
+    id: 2,
+    name: 'instagram',
+    url: 'https://instagram.com/tinytotsboutique',
+    icon: <FaInstagram />,
+    handle: '@tinytotsboutique'
+  },
+  {
+    id: 3,
+    name: 'tiktok',
+    url: 'https://tiktok.com/@tinytotsboutique',
+    icon: <FaTiktok />,
+    handle: '@tinytotsboutique'
+  },
+  {
+    id: 4,
+    name: 'twitter',
+    url: '#',
+    icon: <FaTwitter />,
+    handle: '@tinytotsboutique'
+  }
+];
+
+// Product & API Configuration
 export const SANITY_CONFIG = {
   ENDPOINT: 'https://bqk6gkzk.api.sanity.io/v1/graphql/production/default',
   QUERY: `#graphql
@@ -105,7 +143,7 @@ export const SANITY_CONFIG = {
   `,
 };
 
-// Promotions
+// Promotions & Marketing
 export const LIMITED_OFFERS = [
   {
     code: 'TINYTOTS20',
@@ -121,42 +159,29 @@ export const LIMITED_OFFERS = [
   },
 ];
 
-// Social media
-export const SOCIAL_LINKS = [
-  {
-    platform: 'Instagram',
-    url: 'https://instagram.com/tinytotsboutique',
-    icon: <FaInstagram />,
-    handle: '@tinytotsboutique',
-  },
-  {
-    platform: 'TikTok',
-    url: 'https://tiktok.com/@tinytotsboutique',
-    icon: <FaTiktok />,
-    handle: '@tinytotsboutique',
-  },
-];
-
-// Featured categories
+// Product Categories
 export const FEATURED_CATEGORIES = [
   {
     name: 'Organic Basics',
     slug: 'organic-basics',
     color: '#B8E1D1',
+    icon: <MdEco />,
   },
   {
     name: 'Party Outfits',
     slug: 'party-outfits',
     color: '#F9D4D4',
+    icon: <GiPresent />,
   },
   {
     name: 'Adventure-Ready',
     slug: 'outdoor-gear',
     color: '#D4E3F9',
+    icon: <MdOutlineLocalShipping />,
   },
 ];
 
-// Theme constants
+// Design System
 export const APP_THEME = {
   colors: {
     primary: '#FFA8C2',
@@ -173,9 +198,12 @@ export const APP_THEME = {
     default: 'all 0.3s ease-in-out',
     bounce: 'cubic-bezier(0.68, -0.55, 0.27, 1.55)',
   },
+  spacing: {
+    section: '4rem',
+    element: '1.5rem',
+  }
 };
 
-export const API_ENDPOINT = 'your_sanity_api_endpoint';
-export const QUERY = `*[_type == "product"]`;
-export const links = [/* your nav links array */];
-export const services = [/* your services array */];
+// Helper Exports
+export const API_ENDPOINT = SANITY_CONFIG.ENDPOINT;
+export const QUERY = SANITY_CONFIG.QUERY;
