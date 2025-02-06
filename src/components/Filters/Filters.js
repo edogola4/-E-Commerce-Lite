@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { SearchFilters } from './SearchFilters'
-import { CategoryFilters } from './CategoryFilters'
-import { ForWhomFilters } from './ForWhomFilters'
-import { PriceFilters } from './PriceFilters'
-import { AgeFilters } from './AgeFilters'
-import { HeightFilters } from './HeightFilters'
-import { ClearFilters } from './ClearFilters'
-import { FiltersButton } from './FiltersButton'
+import  SearchFilters  from './SearchFilters'
+import  CategoryFilters  from './CategoryFilters'
+import  ForWhomFilters  from './ForWhomFilters'
+import  PriceFilters  from './PriceFilters'
+import  AgeFilters  from './AgeFilters'
+import  HeightFilters  from './HeightFilters'
+import  ClearFilters  from './ClearFilters'
+import  FiltersButton  from './FiltersButton'
 
 /** Filters applied to the products list */
 const Filters = () => {

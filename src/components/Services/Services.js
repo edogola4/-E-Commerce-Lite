@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ServicesCards } from './ServicesCards';
-import { ServicesHeader } from './ServicesHeader';
+import  ServicesCards  from './ServicesCards';
+import ServicesHeader  from './ServicesHeader';
 
 const Services = ({
   headerComponent: HeaderComponent,
