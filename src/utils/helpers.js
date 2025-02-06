@@ -136,3 +136,12 @@ const SHOP_CONFIG = {
     if (stock > 0) return `Only ${stock} Left!`;
     return 'Backorder Available';
   };
+
+  // src/utils/helpers.js
+export const sortUniqueCategoriesByFirstNumber = (categories) => {
+  return [...new Set(categories)].sort((a, b) => {
+    const numA = parseInt(a.match(/\d+/)?.[0] || 0);
+    const numB = parseInt(b.match(/\d+/)?.[0] || 0);
+    return numA - numB;
+  });
+};

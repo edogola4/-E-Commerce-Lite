@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import whiteLogo from '../../assets/logo_white.png';
 
 const Logo = ({
+ 
   logoSrc,              // Optional custom logo image source
   altText = 'TinyTots Boutique', // Default alt text
   linkTo = '/',         // Default link destination

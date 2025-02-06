@@ -174,3 +174,8 @@ export const APP_THEME = {
     bounce: 'cubic-bezier(0.68, -0.55, 0.27, 1.55)',
   },
 };
+
+export const API_ENDPOINT = 'your_sanity_api_endpoint';
+export const QUERY = `*[_type == "product"]`;
+export const links = [/* your nav links array */];
+export const services = [/* your services array */];

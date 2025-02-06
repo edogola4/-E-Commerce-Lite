@@ -10,5 +10,3 @@ const FeaturedProductsHeader = () => {
 };
 
 export default FeaturedProductsHeader;
-// FeaturedProductsHeader.js
-//export default function FeaturedProductsHeader() { /* ... */ }
