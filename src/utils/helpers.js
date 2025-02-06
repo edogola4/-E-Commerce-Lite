@@ -1,3 +1,5 @@
+//import { sampleProducts, validateProductSchema } from './productData';
+
 // Brand-specific configuration
 const SHOP_CONFIG = {
     currency: 'THB',
