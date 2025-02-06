@@ -1,6 +1,6 @@
 // cart_context.jsx
 import React, { useReducer, createContext, useEffect } from 'react';
-import cartReducer from './cartReducer';
+import cartReducer from './cart_reducer';
 
 // Initial state with local storage check
 const getLocalCart = () => {
