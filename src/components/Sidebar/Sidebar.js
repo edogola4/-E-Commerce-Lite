@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import CartButtons from '../CartButtons';
-import { NavLinks } from '../Navbar/NavLinks';
+//import { NavLinks } from '../Navbar/NavLinks';
 import { useProductsContext } from '../../context/products_context';
-import { SidebarHeader } from './SidebarHeader';
+//import { SidebarHeader } from './SidebarHeader';
+
+
+import SidebarHeader from './SidebarHeader';
+import NavLinks from '../Navbar/NavLinks';
 
 const Sidebar = ({ isOpenOverride, customSidebarHeader }) => {
   const { isSidebarOpen } = useProductsContext();

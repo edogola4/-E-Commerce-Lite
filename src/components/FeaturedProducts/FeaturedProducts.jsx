@@ -1,8 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FeaturedProductsHeader } from './FeaturedProductsHeader';
-import { FeaturedProductsCards } from './FeaturedProductsCards';
-import { FeaturedProductsButton } from './FeaturedProductsButton';
+//import { FeaturedProductsHeader } from './FeaturedProductsHeader';
+//import { FeaturedProductsCards } from './FeaturedProductsCards';
+///mport { FeaturedProductsButton } from './FeaturedProductsButton';
+
+
+import FeaturedProductsHeader from './FeaturedProductsHeader';
+import FeaturedProductsCards from './FeaturedProductsCards';
+import FeaturedProductsButton from './FeaturedProductsButton';
 
 const FeaturedProducts = () => {
   return (

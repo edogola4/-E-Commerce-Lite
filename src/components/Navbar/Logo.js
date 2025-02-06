@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import whiteLogo from '../../assets/logo_white.png';
+//import whiteLogo from '../../assets/logo_white.png';
 
 const Logo = ({
  
@@ -12,7 +12,8 @@ const Logo = ({
 }) => {
   return (
     <Link to={linkTo} className={containerClass}>
-      <img src={logoSrc || whiteLogo} alt={altText} className={imgClass} />
+      {/*<img src={logoSrc || whiteLogo} alt={altText} className={imgClass} />*/}
+      <img src="/assets/logo_white.png" alt="logo" />
     </Link>
   );
 };

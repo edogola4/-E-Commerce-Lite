@@ -9,7 +9,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import heroImage from '../assets/hero.jpg';
+//import heroImage from '../assets/hero.jpg';
 
 const Hero = () => {
   return (
@@ -28,8 +28,9 @@ const Hero = () => {
         </Link>
       </Content>
       <ImageContainer>
-        <img src={heroImage} alt="Hero" className="main-img" />
+        {/*<img src={heroImage} alt="Hero" className="main-img" />*/}
         {/* You can insert an additional image here if needed */}
+        <img src="/assets/hero.jpg" alt="hero" />
       </ImageContainer>
     </Wrapper>
   );

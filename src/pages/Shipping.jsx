@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PageHero } from '../components';
-import shopLogo from '../assets/shop_logo.jpg';
+//import shopLogo from '../assets/shop_logo.jpg';
 
 const ShippingPage = () => {
   return (
@@ -9,7 +9,8 @@ const ShippingPage = () => {
       <PageHero title="shipping" />
       <Wrapper className="page section section-center">
         {/* insert about page image here */}
-        <img src={shopLogo} alt="square logo" />
+       {/* <img src={shopLogo} alt="square logo" />*/}
+       <img src="/assets/shop_logo.jpg" alt="shop logo" />
         <article className="title">
           <h2>Free Shipping!!!</h2>
           <div className="underline"></div>

@@ -1,9 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import CartButtons from '../CartButtons';
-import { Logo } from './Logo';
-import { MenuIcon } from './MenuIcon';
-import { NavLinks } from './NavLinks';
+//import { Logo } from './Logo';
+//import { MenuIcon } from './MenuIcon';
+//import { NavLinks } from './NavLinks';
+
+
+import Logo from './Logo';
+import MenuIcon from './MenuIcon';
+import NavLinks from './NavLinks';
 
 const Nav = () => {
   return (
