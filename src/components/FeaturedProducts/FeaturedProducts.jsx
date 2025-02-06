@@ -16,6 +16,7 @@ const FeaturedProducts = () => {
 
 export default FeaturedProducts;
 
+
 const Wrapper = styled.section`
   background: var(--clr-grey-10);
   .featured {
