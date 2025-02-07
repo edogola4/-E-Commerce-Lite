@@ -1,19 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import whiteLogo from '../../assets/logo_white.png';
 
 const Logo = ({
- 
-  logoSrc,              // Optional custom logo image source
-  altText = 'TinyTots Boutique', // Default alt text
-  linkTo = '/',         // Default link destination
-  containerClass = '',  // Optional container class name
-  imgClass = ''         // Optional image class name
+  logoSrc,
+  altText = 'TinyTots Boutique',
+  linkTo = '/',
+  containerClass = '',
+  imgClass = ''
 }) => {
   return (
     <Link to={linkTo} className={containerClass}>
-      {/*<img src={logoSrc || whiteLogo} alt={altText} className={imgClass} />*/}
-      <img src="/assets/logo_white.png" alt="logo" />
+      <img 
+        src={logoSrc || "/assets/logo_white.png"} 
+        alt={altText} 
+        className={imgClass} 
+        style={{ height: '40px', width: 'auto' }} 
+      />
     </Link>
   );
 };

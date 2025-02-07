@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
 import { theme } from './styles/theme';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Navbar, Sidebar,  ScrollToTop, Loading, Newsletter } from './components';
+import { Navbar, Sidebar, Footer,  ScrollToTop, Loading } from './components';
 import Error from './pages/Error';
 
 // Lazy-loaded pages for better performance
@@ -70,11 +70,11 @@ const Layout = ({ children }) => {
           {user && <p>Welcome back, {user.given_name || user.nickname}! 👋</p>}
         </div>
         {children}
-        <Newsletter />
+       {/* <Newsletter />*/}
       </main>
-      < />
+    <Footer />
     </>
   );
 };
 
-export default App;i
+export default App;

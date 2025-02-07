@@ -71,5 +71,5 @@ export {
 
 
 // src/components/index.js
-export { default as Newsletter } from './Newsletter';
+//export { default as Newsletter } from './Newsletter';
 //export { default as Sort } from './Sort/Sort.js';
