@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFilterContext } from '../../context/filter_context';
-import { services } from '../../utils/constants';
+//import { services } from '../../utils/constants';
+import { OUR_PROMISE } from '../../utils/constants';
+
 
 const ServicesCards = ({
   containerClass = 'services-center',
@@ -12,7 +14,7 @@ const ServicesCards = ({
   const { updateFilters, handleClickFromServices, clearFilters } = useFilterContext();
   return (
     <div className={containerClass}>
-      {services.map(({ id, icon, title }) => (
+      {OUR_PROMISE.map(({ id, icon, title }) => (
         <article key={id} className={cardClass}>
           <span className='icon'>{icon}</span>
           <h4>{title}</h4>

@@ -54,7 +54,7 @@ const Newsletter = () => {
           placeholder="Enter your email"
           required
         />
-        <Button type="submit">Subscribe</Button>
+        <Button type="submit">Subscribeyyyy</Button>
       </form>
       {message && <p>{message}</p>}
     </NewsletterWrapper>

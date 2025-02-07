@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { links } from '../../utils/constants';
+//import { links } from '../../utils/constants';
+import { NAV_LINKS as links } from '../../utils/constants'; 
 import { useProductsContext } from '../../context/products_context';
 
 const NavLinks = ({

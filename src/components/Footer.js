@@ -4,6 +4,13 @@
 // Now includes social links, quick navigation, and company information
 // --------------------------------------------------------------------
 
+
+// src/components/Footer.js
+// --------------------------------------------------------------------
+// Enhanced Footer Component
+// Now includes social links, quick navigation, and company information
+// --------------------------------------------------------------------
+
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -77,7 +84,7 @@ const Footer = () => {
         <p>
           &copy; {new Date().getFullYear()} TinyTots Boutique. All rights reserved.
         </p>
-        <p>Designed with ❤️ by Your Team</p>
+        <p>Designed with ❤️ by Bran Don</p>
       </div>
     </Wrapper>
   );
