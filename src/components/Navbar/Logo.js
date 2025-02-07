@@ -14,7 +14,7 @@ const Logo = ({
         src={logoSrc || "/assets/logo_white.png"} 
         alt={altText} 
         className={imgClass} 
-        style={{ height: '40px', width: 'auto' }} 
+        style={{ height: '80px', width: 'auto' }} 
       />
     </Link>
   );

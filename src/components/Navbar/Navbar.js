@@ -1,35 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CartButtons from '../CartButtons';
 import Logo from './Logo';
-import MenuIcon from './MenuIcon';
+import { Squash as Hamburger } from 'hamburger-react';
 import NavLinks from './NavLinks';
 import { APP_THEME, NAV_LINKS } from '../../utils/constants';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <NavContainer>
+    <NavContainer $isScrolled={isScrolled}>
       <div className='nav-center'>
         <div className='nav-header'>
           <Logo />
           <button 
             className='nav-toggle'
             aria-label='Navigation Toggle'
+            aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <MenuIcon isOpen={isMobileMenuOpen} />
+            <Hamburger toggled={isMobileMenuOpen} color={APP_THEME.colors.primary} />
           </button>
         </div>
         
-        <NavLinks 
-          className={`nav-links ${isMobileMenuOpen ? 'show-links' : ''}`} 
-          links={NAV_LINKS}
-        />
-        
-        <div className='cart-btn-wrapper'>
-          <CartButtons />
+        <div className={`nav-content ${isMobileMenuOpen ? 'show-content' : ''}`}>
+          <NavLinks 
+            className='nav-links' 
+            links={NAV_LINKS}
+            onLinkClick={() => setIsMobileMenuOpen(false)}
+          />
+          
+          <div className='cart-btn-wrapper'>
+            <CartButtons variant='minimal' />
+          </div>
         </div>
       </div>
     </NavContainer>
@@ -37,128 +48,123 @@ const Navbar = () => {
 };
 
 const NavContainer = styled.nav`
-  height: 5rem;
-  background: ${APP_THEME.colors.neutral};
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: ${({ theme }) => theme.spacing.navHeight};
+  background: ${({ $isScrolled }) => 
+    $isScrolled ? `rgba(${APP_THEME.colors.neutralRGB}, 0.95)` : APP_THEME.colors.neutral};
+  backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 1px solid ${APP_THEME.colors.border};
 
   .nav-center {
-    width: 90vw;
+    width: 90%;
+    height: 100%;
     margin: 0 auto;
     max-width: ${APP_THEME.spacing.maxWidth};
-    height: 100%;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
   }
 
   .nav-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 1rem;
+    z-index: 1001;
   }
 
   .nav-toggle {
     background: transparent;
-    border: transparent;
-    color: ${APP_THEME.colors.primary};
+    border: none;
     cursor: pointer;
     padding: 0.5rem;
-    transition: ${APP_THEME.transitions.default};
-    
-    &:hover {
-      transform: scale(1.1);
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    svg {
-      font-size: 2rem;
+  .nav-content {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+
+    @media (max-width: 991px) {
+      position: fixed;
+      top: ${APP_THEME.spacing.navHeight};
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: ${APP_THEME.colors.neutral};
+      flex-direction: column;
+      align-items: stretch;
+      padding: 2rem;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      overflow-y: auto;
+
+      &.show-content {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
     }
   }
 
   .nav-links {
-    display: none;
-    transition: ${APP_THEME.transitions.default};
+    display: flex;
+    gap: 2rem;
+    transition: all 0.3s ease;
 
-    &.show-links {
-      display: flex;
+    a {
+      color: ${APP_THEME.colors.dark};
+      font-family: ${APP_THEME.fonts.secondary};
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      position: relative;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: ${APP_THEME.colors.primary};
+        background: rgba(${APP_THEME.colors.primaryRGB}, 0.1);
+      }
+
+      &.active {
+        color: ${APP_THEME.colors.primary};
+        font-weight: 600;
+      }
+    }
+
+    @media (max-width: 991px) {
       flex-direction: column;
-      position: absolute;
-      top: 5rem;
-      left: 0;
-      right: 0;
-      background: ${APP_THEME.colors.neutral};
-      padding: 2rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      gap: 1rem;
+
+      a {
+        padding: 1rem;
+        border-radius: 0;
+        border-bottom: 1px solid ${APP_THEME.colors.border};
+      }
     }
   }
 
   .cart-btn-wrapper {
-    display: none;
-    gap: 1rem;
+    display: flex;
+    gap: 1.5rem;
+
+    @media (max-width: 991px) {
+      margin-top: auto;
+      padding-top: 2rem;
+      justify-content: center;
+    }
   }
 
   @media (min-width: 992px) {
     .nav-toggle {
-      display: none;
-    }
-
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-left: 2rem;
-
-      li {
-        margin: 0;
-      }
-
-      a {
-        color: ${APP_THEME.colors.dark};
-        font-family: ${APP_THEME.fonts.secondary};
-        font-weight: 500;
-        padding: 0.5rem;
-        transition: ${APP_THEME.transitions.default};
-        position: relative;
-
-        &:hover {
-          color: ${APP_THEME.colors.primary};
-          &::after {
-            width: 100%;
-          }
-        }
-
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background: ${APP_THEME.colors.primary};
-          transition: ${APP_THEME.transitions.default};
-        }
-      }
-    }
-
-    .cart-btn-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-      margin-right: 0rem;
-      margin-left: 2rem;
-    }
-  }
-
-  @media (max-width: 991px) {
-    .nav-center {
-      grid-template-columns: auto 1fr;
-    }
-
-    .cart-btn-wrapper {
       display: none;
     }
   }
