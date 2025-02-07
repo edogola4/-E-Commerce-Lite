@@ -10,7 +10,7 @@ export const BRAND_TAGLINE = 'Big Style for Little Ones';
 
 export const CONTACT_INFO = {
   email: 'hello@tinytotsboutique.com',
-  phone: '+1 (555) 123-4567',
+  phone: '+254 (555) 123-4567',
   address: '123 Playful Lane, Kids City, KC 12345'
 };
 
